@@ -389,6 +389,16 @@ require('telescope').setup {
   },
 }
 
+require("ibl").setup({
+  indent = {
+    char = "¦", -- This is a slightly thinner char than the default one, check :help ibl.config.indent.char
+  },
+  scope = {
+    show_start = false,
+    show_end = false,
+  },
+})
+
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
@@ -569,6 +579,14 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+  vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+    underline = false
+    }
+)
 
 -- document existing key chains
 require('which-key').register {
