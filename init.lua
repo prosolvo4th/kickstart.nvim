@@ -267,11 +267,42 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   -- { import = 'custom.plugins' },
+  {
+    'preservim/nerdtree',
+    'Xuyuanp/nerdtree',
+    'tiagofumo/vim-nerdtree-syntax-highlight',
+    'PhilRunninger/nerdtree-buffer-ops',
+    'PhilRunninger/nerdtree-visual-selection',
+    'pseewald/vim-anyfold',
+    'blueyed/vim-diminactive',
+    'majutsushi/tagbar',
+  }
 }, {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
+vim.cmd([[
+let NERDTreeShowHidden=1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | wincmd p
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+]])
+
+vim.keymap.set('n', '<C-E>', ':NERDTreeToggle<CR> :NERDTreeRefreshRoot<CR>', { desc = 'Toogle [E]xplorer - NERDTree' })
+
+vim.keymap.set({'n', 'i', 'v'}, '<F8>', ':TagbarToggle<CR>', { desc = 'Toogle Tagbar' })
+
+vim.cmd([[
+autocmd Filetype * AnyFoldActivate               " activate for all filetypes
+set foldlevel=99 " Open all folds
+let g:anyfold_fold_comments=1
+set foldmethod=manual
+" colorscheme solarized
+hi Folded term=NONE cterm=NONE
+]])
+
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Escape sequence for terminal' })
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -279,9 +310,17 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 
--- Enable mouse mode
-vim.o.mouse = 'a'
+-- Disable mouse mode
+vim.o.mouse = ''
 
+vim.o.autoindent = true
+vim.o.nu = true
+vim.o.encoding = 'utf-8'
+vim.o.tabstop = 4
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.syntax = 'on'
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
