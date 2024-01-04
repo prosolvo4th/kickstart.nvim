@@ -269,9 +269,9 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
   {
     'preservim/nerdtree',
-    'Xuyuanp/nerdtree',
+--    'Xuyuanp/nerdtree',
     'tiagofumo/vim-nerdtree-syntax-highlight',
-    'PhilRunninger/nerdtree-buffer-ops',
+--    'PhilRunninger/nerdtree-buffer-ops',
     'PhilRunninger/nerdtree-visual-selection',
     'pseewald/vim-anyfold',
     'blueyed/vim-diminactive',
