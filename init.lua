@@ -272,6 +272,7 @@ require('lazy').setup({
 --    'Xuyuanp/nerdtree',
     'tiagofumo/vim-nerdtree-syntax-highlight',
 --    'PhilRunninger/nerdtree-buffer-ops',
+    'Xuyuanp/nerdtree-git-plugin',
     'PhilRunninger/nerdtree-visual-selection',
     'pseewald/vim-anyfold',
     'blueyed/vim-diminactive',
