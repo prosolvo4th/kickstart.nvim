@@ -287,7 +287,6 @@ vim.cmd([[
 let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | wincmd p
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 ]])
 
 vim.keymap.set('n', '<C-E>', ':NERDTreeToggle<CR> :NERDTreeRefreshRoot<CR>', { desc = 'Toogle [E]xplorer - NERDTree' })
