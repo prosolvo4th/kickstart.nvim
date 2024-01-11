@@ -307,6 +307,8 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Escape sequence for termin
 -- Set highlight on search
 vim.o.hlsearch = false
 
+vim.o.cursorline = true
+
 -- Make line numbers default
 vim.wo.number = true
 
