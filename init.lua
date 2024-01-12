@@ -277,7 +277,12 @@ require('lazy').setup({
     'pseewald/vim-anyfold',
     'blueyed/vim-diminactive',
     'majutsushi/tagbar',
-  }
+  },
+  {
+    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
+    'ldelossa/nvim-dap-projects',
+  },
 }, {})
 
 -- [[ Setting options ]]
